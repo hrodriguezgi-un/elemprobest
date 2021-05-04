@@ -1,9 +1,9 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
-
-`require(car)`
 
 ## Carga inicial
 
