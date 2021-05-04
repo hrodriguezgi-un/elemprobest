@@ -10,7 +10,7 @@ Se realizará la validación de la variación de las temperaturas para las ciuda
 * Población: 8.419.000 habitantes (2019)
 * Ubicación Geográfica: 40.7128° N, 74.0060° W
 
-### San Francisco
+### California
 * Elevación: 12 msnm
 * Población: 874.961 habitantes (2019)
 * Ubicación Geográfica: 37.7749° N, 122.4194° W
