@@ -13,46 +13,58 @@ url <- 'https://github.com/hrodriguezgi-un/elemprobest/raw/main/sources/daily_we
 all_countries <- read.csv(url)
 ```
 
-* Creación de dataframe para San Francisco
+* Creación de dataframe para California
 ```{r}
 california <- subset(all_countries, Country.Region == 'US' & Province.State == 'California')
 ```
 
-* Creación de dataframe para New York
+* Creación de dataframe para Carolina del Norte
 ```{r}
-new_york <- subset(all_countries, Country.Region == 'US' & Province.State == 'New York')
+north_carolina <- subset(all_countries, Country.Region == 'US' & Province.State == 'North Carolina')
 ```
 
-## Pruebas de normalidad para los datos de San Francisco
+## Análisis de California
+### Pruebas de normalidad
 * qqPlot e histograma para los datos de Temperatura
 ```{r}
 par(mfrow=c(1, 2))
 require(car)
 
 qqPlot(california$temperatureHigh, pch = 19,
-       main = 'QQplot temperatura California',
+       main = 'QQplot Temp. California',
        ylab = 'Cuantiles muestrales',
        xlab = 'Cuantiles teóricos')
 
 hist(california$temperatureHigh, freq = T,
-     main='Histograma temperatura California',
+     main='Hist. Temp. California',
      ylab = 'Frecuencia',
      xlab = 'Temperatura')
 ```
+### Tablas de frecuencia
+```{r}
+table(california$icon)
+```
 
-## Pruebas de normalidad para los datos de New York
+
+## Carolina del Norte
+### Pruebas de normalidad
 * qqPlot e histograma para los datos de Temperatura
 ```{r}
 par(mfrow=c(1, 2))
 require(car)
 
-qqPlot(new_york$temperatureHigh, pch = 19,
-       main = 'QQplot temperatura New York',
+qqPlot(north_carolina$temperatureHigh, pch = 19,
+       main = 'QQplot Temp. Carolina del Norte',
        ylab = 'Cuantiles muestrales',
        xlab = 'Cuantiles teóricos')
 
-hist(new_york$temperatureHigh, freq = T,
-     main='Histograma temperatura New York',
+hist(north_carolina$temperatureHigh, freq = T,
+     main='Hist. Temp. Carolina del Norte',
      ylab = 'Frecuencia',
      xlab = 'Temperatura')
+```
+
+### Tablas de frecuencia
+```{r}
+table(north_carolina$icon)
 ```
