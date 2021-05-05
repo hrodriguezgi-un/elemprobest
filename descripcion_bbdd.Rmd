@@ -1,31 +1,39 @@
 ---
-title: "Descripción de la base de datos"
-output: html_document
+title: "La Latitud define la temperatura de un lugar?"
+author: "Harvey Rodriguez Gil"
+date: "Mayo 7, 2021"
+output: slidy_presentation
 ---
+
+# Descripción de la base de datos
+
+**fuente**
 
 El archivo fuente utilizado se encuentra en la carpeta [sources](sources/daily_weather_2020.csv), y fue originalmente obtenido desde ***Kaggle***: [*Historical Daily Weather Data 2020*](https://www.kaggle.com/vishalvjoseph/weather-dataset-for-covid19-predictions)
 
-Este conjunto de datos contiene la información diaria del clima para 163 países (algunos con información de estados/provincias) desde el 1º de Enero de 2020 hasta el 20 de Abril de 2020. La lista de los países fue basado en el conjunto de datos de John Hopkins COVID-19. A continuación se describiran las variables utilizadas en el ejercicio:
+**Descripción de la información**
 
-* **Country/Region:** país a los que le corresponden los datos
-
-* **Province/State:** estado del pais al que le corresponde los datos.
-
-* **Time:** fecha en la que fueron tomados los datos
-
-* **Summary:** texto resumen (humano) del estado del clima.
-
-* **Icon:** texto resumen (máquina) del estado del clima. Utilizado para presentar un ícono que represente el estado del clima.
-
-* **Humidity:** humedad relativa
-
-* **Pressure:** Presión del aíre 
-
-* **TemperatureMin:** Temperatura mínima registrada para un día
-
-* **TemperatureMax:** Temperatura máxima registrada para un día
+Este conjunto de datos contiene la información diaria del clima para 163 países (algunos con información de estados/provincias) desde el 1º de Enero de 2020 hasta el 20 de Abril de 2020. La lista de los países fue basado en el conjunto de datos de John Hopkins COVID-19. 
 
 
-[regresar](https://hrodriguezgi-un.github.io/elemprobest)
+# Descripción de las variables
 
-[siguiente](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_california.html)
+A continuación se describiran las variables utilizadas en el ejercicio:
+
+- **Country/Region:** país a los que le corresponden los datos
+
+- **Province/State:** estado del pais al que le corresponde los datos.
+
+- **Time:** fecha en la que fueron tomados los datos
+
+- **Summary:** texto resumen (humano) del estado del clima.
+
+- **Icon:** texto resumen (máquina) del estado del clima. Utilizado para presentar un ícono que represente el estado del clima.
+
+- **Humidity:** humedad relativa
+
+- **Pressure:** Presión del aíre 
+
+- **TemperatureMin:** Temperatura mínima registrada para un día
+
+- **TemperatureMax:** Temperatura máxima registrada para un día

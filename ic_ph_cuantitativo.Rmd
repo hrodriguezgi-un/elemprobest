@@ -1,6 +1,8 @@
 ---
-title: "AIntervalos de Confianza y Pruebas de Hipótesis"
-output: html_document
+title: "Intervalos de Confianza y Pruebas de Hipótesis"
+author: "Harvey Rodriguez Gil"
+date: "Mayo 7, 2021"
+output: ioslides_presentation
 ---
 
 ## Carga inicial
