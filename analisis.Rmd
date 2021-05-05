@@ -1,0 +1,147 @@
+---
+title: "La Latitud define la temperatura de un lugar?"
+author: "Harvey Rodriguez Gil"
+date: "Mayo 7, 2021"
+output: 
+  slidy_presentation:
+    font_adjustment: -1
+---
+
+# Descripción de la base de datos
+
+**fuente**
+
+El archivo fuente utilizado se encuentra en la carpeta [sources](sources/daily_weather_2020.csv), y fue originalmente obtenido desde ***Kaggle***: [*Historical Daily Weather Data 2020*](https://www.kaggle.com/vishalvjoseph/weather-dataset-for-covid19-predictions)
+
+**Descripción de la información**
+
+Este conjunto de datos contiene la información diaria del clima para 163 países (algunos con información de estados/provincias) desde el 1º de Enero de 2020 hasta el 20 de Abril de 2020. La lista de los países fue basado en el conjunto de datos de John Hopkins COVID-19. 
+
+
+# Descripción de las variables
+
+A continuación se describiran las variables utilizadas en el ejercicio:
+
+- **Country/Region:** país a los que le corresponden los datos
+
+- **Province/State:** estado del pais al que le corresponde los datos.
+
+- **Time:** fecha en la que fueron tomados los datos
+
+- **Summary:** texto resumen (humano) del estado del clima.
+
+- **Icon:** texto resumen (máquina) del estado del clima. Utilizado para presentar un ícono que represente el estado del clima.
+
+- **Humidity:** humedad relativa
+
+- **Pressure:** Presión del aíre 
+
+- **TemperatureMin:** Temperatura mínima registrada para un día
+
+- **TemperatureMax:** Temperatura máxima registrada para un día
+
+
+# Pasos iniciales
+
+Carga de la información del clima de todos los países y creación de los dataframes para cada uno de los estados a analizar:
+
+```{r}
+url <- '/Users/hrodriguez/Downloads/daily_weather_2020.csv'
+all_countries <- read.csv(url)
+california <- subset(all_countries, Country.Region == 'US' & Province.State == 'California')
+new_york <- subset(all_countries, Country.Region == 'US' & Province.State == 'New York')
+```
+
+# Análisis Descriptivo - California
+### Pruebas de normalidad: qqPlot e histograma para los datos de Temperatura
+```{r}
+par(mfrow=c(1, 2))
+require(car)
+qqPlot(california$temperatureMin, pch = 19,
+       main = 'QQplot Temp. California',
+       ylab = 'Cuantiles muestrales',
+       xlab = 'Cuantiles teóricos')
+hist(california$temperatureMin, freq = T,
+     main='Hist. Temp. California',
+     ylab = 'Frecuencia',
+     xlab = 'Temperatura')
+```
+
+
+### Pruebas de normalidad: qqPlot e histograma para los datos de Humedad
+```{r}
+par(mfrow=c(1, 2))
+require(car)
+qqPlot(california$humidity, pch = 19,
+       main = 'QQplot Humedad California',
+       ylab = 'Cuantiles muestrales',
+       xlab = 'Cuantiles teóricos')
+hist(california$humidity, freq = T,
+     main='Hist. Temp. Humedad',
+     ylab = 'Frecuencia',
+     xlab = 'Humedad')
+```
+
+
+#### Tablas de frecuencia
+```{r}
+table(california$icon)
+```
+
+
+# Análisis Descriptivo - New york
+### qqPlot e histograma - Temperatura Mínima
+```{r}
+par(mfrow=c(1, 2))
+require(car)
+qqPlot(new_york$temperatureMin, pch = 19,
+       main = 'QQplot Temp. California Mín',
+       ylab = 'Cuantiles muestrales',
+       xlab = 'Cuantiles teóricos')
+hist(california$temperatureMin, freq = T,
+     main='Hist. Temp. California Min',
+     ylab = 'Frecuencia',
+     xlab = 'Temperatura')
+```
+
+
+### qqPlot e histograma - Humedad
+```{r}
+par(mfrow=c(1, 2))
+require(car)
+qqPlot(california$humidity, pch = 19,
+       main = 'QQplot Humedad New york',
+       ylab = 'Cuantiles muestrales',
+       xlab = 'Cuantiles teóricos')
+hist(california$humidity, freq = T,
+     main='Hist. Temp. Humedad',
+     ylab = 'Frecuencia',
+     xlab = 'Humedad')
+```
+
+
+#### Tablas de frecuencia
+```{r}
+table(california$icon)
+```
+
+
+# Intervalos de confianza
+Vamos a identificar un intervalo de confianza del $95\%$ para la temperatura media
+```{r}
+t.test(x=california$temperatureMin, conf.level=0.95)$conf.int
+
+t.test(x=new_york$temperatureMin, conf.level=0.95)$conf.int
+```
+
+De lo anterior podemos concluir con un nivel de confianza del $95\%$ que la temperatura promedio para California se encuentra entre $39.98ºF$ y $42.25ºF$, y la temperatura promedio para New York se encuentra entre $23.11ºF$ y $26.58ºF$
+
+
+Ahora para validar si existe una diferencia estadísticamente significativa entre las temperaturas de los dos estados realizaremos lo siguiente:
+```{r}
+t.test(x=california$temperatureMin, y=new_york$temperatureMin,
+       paired=FALSE, var.equal=FALSE,
+       conf.level = 0.95)$conf.int
+```
+
+A partir del intervalo de confianza anterior se puede concluir, con un nivel de confianza del $95\%$, que la temperatura promedio de California es superior a la temperatura promedio de New York, ya que el intervalo de confianza NO incluye el cero y por ser positivos sus limites se puede afirmar con un nivel de confianza del $95\%$ que $\mu_{California} > \mu_{New York}$
