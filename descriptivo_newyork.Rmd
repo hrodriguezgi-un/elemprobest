@@ -7,7 +7,6 @@ output: html_document
 
 * Carga del dataset original
 ```{r}
-#url <- 'https://github.com/hrodriguezgi-un/elemprobest/raw/main/sources/daily_weather_2020.csv'
 url <- '/Users/hrodriguez/Downloads/daily_weather_2020.csv'
 all_countries <- read.csv(url)
 ```
@@ -41,5 +40,6 @@ hist(new_york$temperatureHigh, freq = T,
 table(new_york$icon)
 ```
 
-[regresar](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_california)
-[siguiente]()
+[regresar](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_california.html)
+
+[siguiente](https://hrodriguezgi-un.github.io/elemprobest/ic_ph_cuantitativo.html)

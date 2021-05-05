@@ -46,4 +46,4 @@ La finalidad del estudio es determinar si dos estados que se encuentran ubicados
 
 
 
-[siguiente](https://hrodriguezgi-un.github.io/elemprobest/descripcion_bbdd)
+[siguiente](https://hrodriguezgi-un.github.io/elemprobest/descripcion_bbdd.html)

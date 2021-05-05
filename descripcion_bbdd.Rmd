@@ -25,5 +25,7 @@ Este conjunto de datos contiene la información diaria del clima para 163 paíse
 
 * **TemperatureMax:** Temperatura máxima registrada para un día
 
-[regresar](https://hrodriguezgi-un.github.io/elemprobest/)
-[siguiente]()
+
+[regresar](https://hrodriguezgi-un.github.io/elemprobest)
+
+[siguiente](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_california.html)

@@ -41,5 +41,5 @@ hist(new_york$temperatureHigh, freq = T,
 table(new_york$icon)
 ```
 
-[regresar](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_california)
+[regresar](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_california.html)
 [siguiente]()

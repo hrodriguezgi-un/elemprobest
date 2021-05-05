@@ -7,18 +7,18 @@ output: html_document
 
 * Carga del dataset original
 ```{r}
-#url <- 'https://github.com/hrodriguezgi-un/elemprobest/raw/main/sources/daily_weather_2020.csv'
 url <- '/Users/hrodriguez/Downloads/daily_weather_2020.csv'
 all_countries <- read.csv(url)
 ```
 
 * Creación de dataframe para New York
 ```{r}
-new_york <- subset(all_countries, Country.Region == 'US' & Province.State == 'New York')
+california <- subset(all_countries, Country.Region == 'US' & Province.State == 'California')
 ```
 
 ## Análisis de California
-### Pruebas de normalidad
+
+#### Pruebas de normalidad
 * qqPlot e histograma para los datos de Temperatura
 ```{r}
 par(mfrow=c(1, 2))
@@ -34,11 +34,14 @@ hist(california$temperatureHigh, freq = T,
      ylab = 'Frecuencia',
      xlab = 'Temperatura')
 ```
-### Tablas de frecuencia
+
+
+#### Tablas de frecuencia
 ```{r}
 table(california$icon)
 ```
 
 
-[regresar](https://hrodriguezgi-un.github.io/elemprobest/descripcion_bbdd)
-[siguiente](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_newyork)
+[regresar](https://hrodriguezgi-un.github.io/elemprobest/descripcion_bbdd.html)
+
+[siguiente](https://hrodriguezgi-un.github.io/elemprobest/descriptivo_newyork.html)
